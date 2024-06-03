@@ -1,11 +1,56 @@
 {
-  "extends": ["airbnb", "airbnb/hooks", "plugin:prettier/recommended"],
-  "plugins": ["prettier"],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+    "babelOptions": {
+      "presets": ["@babel/preset-env", "@babel/preset-react"]
+    },
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+  "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"]
+      },
+      "alias": {
+        "map": [
+          ["@components", "./src/components"],
+          ["@views", "./src/views"],
+          ["@layouts", "./src/layouts"],
+          ["@routes", "./src/routes"]
+        ],
+        "extensions": [".js", ".jsx"]
+      }
+    }
+  },
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:prettier/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "plugins": ["react", "prettier", "import"],
   "rules": {
     "prettier/prettier": ["error"],
     "react/react-in-jsx-scope": "off",
+    "react/function-component-definition": "off",
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   },
+  "overrides": [
+    {
+      "files": ["**/index.js"],
+      "rules": {
+        "import/prefer-default-export": "off"
+      }
+    }
+  ],
   "env": {
     "browser": true,
     "es2021": true,
