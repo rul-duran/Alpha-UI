@@ -23,7 +23,8 @@
           ["@components", "./src/components"],
           ["@views", "./src/views"],
           ["@layouts", "./src/layouts"],
-          ["@routes", "./src/routes"]
+          ["@routes", "./src/routes"],
+          ["@assets", "./src/assets"]
         ],
         "extensions": [".js", ".jsx"]
       }
