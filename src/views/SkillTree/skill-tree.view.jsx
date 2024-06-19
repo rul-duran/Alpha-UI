@@ -20,7 +20,7 @@ const treeData = [
 
 const SkillTree = () => (
   <Container sx={{ mt: 15 }}>
-    <TreeGraph treeData={treeData} />
+    <TreeGraph />
   </Container>
 );
 
